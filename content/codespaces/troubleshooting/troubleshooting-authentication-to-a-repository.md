@@ -30,8 +30,8 @@ You may see these errors if you use a dotfiles repository with {% data variables
 To use the default HTTPS, remove the conflicting configuration from your dotfiles. If your dotfiles repository contains an installation script in a recognized file such as `install.sh`, you can use logic like the following to exclude the configuration in codespaces.
 
 ```shell
-if [ -z "$CODESPACES" ]; then
-  git config --global url."git@github.com".insteadOf "https://github.com"
+if [ -n "$CODESPACES" ]; then
+  git config --global url."https://github.com/".insteadOf git@github.com:
 fi
 ```
 
